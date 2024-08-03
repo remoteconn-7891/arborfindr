@@ -1,62 +1,43 @@
-# Base class
-class User:
 
-# Instances of base class
-    home_type = 'woodland'
-    def __init__(self, name, address, city, state, zip_code, price):
+# Parent class
+class User:
+    def __init__(self, name, city, state, zip_code, address):
         self.name = name
-        self.address = address
-        self.city =city
+        self.city = city
         self.state = state
         self.zip_code = zip_code
-        self.price = price
+        self.address = address
 
-# Attributes of instances
-corey = User('name', 'address', 'city', 'state', 'zip_code', 'address', 'price')
-corey.name = "Corey" 
-corey.address = "705 diamond dr" 
-corey.city = "Alamosa"
-corey.state = "CO"
-corey.zip_code = 81101
-corey.price = 1000
+# Call the search() method for user1 object
+    def search(self):
+        print(f"Hello, my name is {self.name}. I need an arborist to remove some trees for me. I am from {self.city} {self.state}. My street address is {self.address}")
 
-# Attributes of instances
-don = User('name', 'address', 'city', 'state', 'zip_code', 'address', 'price')
-don.name = "Don" 
-don.address = "123 Murphy str" 
-don.city = "CO Springs"
-don.state = "CO"
-don.zip_code = 57388
-don.price = 1200
+# Object created for parent (User) class with the following attributes
+user1 = User("Corey", "Alamosa", "CO", 81101, "705 Diamond dr")
 
-# Methods of objects
-def search_arborist(self):
-    print (f"My name is {self.name} I live in {self.city} {self.state} I'm looking for an arborist My price estimate is {self.price} and my street address {self.address}")
+# search() method for the user1 object of the parent class
+user1.search()
 
-def search_arborist(self):
-    print (f"My name is {self.name} I live in {self.city} {self.state} I'm looking for an arborist My price estimate is {self.price} and my street address {self.address}")          
-
-    corey.search_arborist()
-    don.search_arborist()
-    
-# Child class
+# Sub class (Arborist) of parent class (User)
 class Arborist(User):
-# Child class instances
-    def __init__(self, business_name, service_type, price, reviews, years_of_experience):
+    def __init__(self, business_name, service_type, price, years_experience, reviews):
         self.business_name = business_name
         self.service_type = service_type
+        self.price = price
+        self.years_experience = years_experience
         self.reviews = reviews
-        self.years_of_experience = years_of_experience
+    
+    # Call the search() method for the arborist1 object
 
-# Attributes of instances
-treetrimmerz = Arborist('business_name', 'service_type', 'reviews', 'years_of_experience')
-treetrimmerz.business_name = 'Treetrimmerz'
-treetrimmerz.service_type = 'consultation'
-treetrimmerz.reviews = 'five stars'
-treetrimmerz.years_of_experience = 10
+    # Override search() method
+    def search(self):
 
-def arborist_response(self):
-    print (f"Hello this is {self.business_name} I would be happy to provide you with tree. I provide the following services {self.service_type} We can negotiate a price. 
-           Please message me and we can work something out")
+        # call the search() method of parent class using super() function
+        super().search()
+        
+        print(f"Hello Corey, this is {self.business_name} and I would love to help you with your tree problems")
+    
+    # Object created for sub class (Arborist) with the following attributes
+arborist1 = Arborist("Treezbgone", "tree removal", 1000, 5, "five stars")
 
-treetrimmerz.arborist_response()
+arborist1.search
