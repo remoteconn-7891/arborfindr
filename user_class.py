@@ -26,18 +26,18 @@ class Arborist(User):
         self.price = price
         self.years_experience = years_experience
         self.reviews = reviews
-    
+      
     # Call the search() method for the arborist1 object
 
     # Override search() method
-    def search(self):
+    def response(self):
 
         # call the search() method of parent class using super() function
-        super().search()
-        
-        print(f"Hello Corey, this is {self.business_name} and I would love to help you with your tree problems")
+
+        print(f"Hello Corey, this {self.business_name} is and I would love to help you with your tree problems")
     
     # Object created for sub class (Arborist) with the following attributes
 arborist1 = Arborist("Treezbgone", "tree removal", 1000, 5, "five stars")
 
-arborist1.search
+# search() method for the user1 object of the parent class
+arborist1.response()
